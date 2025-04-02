@@ -175,8 +175,8 @@ header nav ul li a:hover {
 
 .grid3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 20px; /* Avstand mellom boksene */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Adjust spacing between boxes */
 }
 
 .box3 {
