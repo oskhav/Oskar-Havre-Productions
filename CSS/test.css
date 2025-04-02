@@ -217,31 +217,40 @@ header nav ul li a:hover {
 
 /* kontakt */
 .content5 {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
   text-align: center;
 }
 
 .contact-info5 {
-  display: flex;
-  justify-content: space-around;
-  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tre kolonner */
+  gap: 20px; /* Avstand mellom boksene */
+  margin: 20px 0;
 }
 
 .info-box5 {
-  background-color: white;
+  background: #f4f4f4;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-basis: 30%;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.info-box5:hover {
+  transform: scale(1.05); /* Zoom-effekt ved hover */
 }
 
 .contact-form5 {
-  background-color: white;
+  background: #f9f9f9;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .contact-form5 h2 {
@@ -254,7 +263,7 @@ header nav ul li a:hover {
   font-weight: bold;
 }
 
-.contact-form5 input,
+contact-form5 input,
 .contact-form5 textarea {
   width: 100%;
   padding: 10px;
@@ -264,16 +273,16 @@ header nav ul li a:hover {
 }
 
 .contact-form5 button {
-  background-color: #0077cc;
+  background: #007bff;
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .contact-form5 button:hover {
-  background-color: #005fa3;
+  background: #0056b3;
 }
 
 /*Mine bilder*/
