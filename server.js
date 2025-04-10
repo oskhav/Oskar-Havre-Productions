@@ -1,17 +1,20 @@
-
 const express = require("express");
 const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const db = require("./db"); // Importer SQLite-tilkoblingen
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
+// Sett opp EJS som view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
-app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
@@ -34,30 +37,20 @@ app.get("/register", (req, res) => {
 // 📌 Håndter registrering (lagrer bruker i SQLite)
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
-  const saltRounds = 12;
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    // Sjekk om brukeren allerede finnes
-    db.get("SELECT * FROM users WHERE username = ?", [username], (err, user) => {
-      if (user) {
-        return res.render("register", { message: "Brukernavnet er allerede tatt!" });
+  db.run(
+    'INSERT INTO users (username, password) VALUES (?, ?)',
+    [username, hashedPassword],
+    (err) => {
+      if (err) {
+        console.error(err.message);
+        res.render('registrer', { message: 'Brukernavn er allerede tatt.' });
+      } else {
+        res.redirect('/login');
       }
-
-      // Sett inn brukeren i databasen
-      db.run("INSERT INTO users (username, password) VALUES (?, ?)", [username, hashedPassword], (err) => {
-        if (err) {
-          console.error("Feil ved registrering:", err.message);
-          return res.send("Feil ved registrering.");
-        }
-        res.redirect("/");
-      });
-    });
-  } catch (err) {
-    console.error(err);
-    res.send("Feil ved registrering.");
-  }
+    }
+  );
 });
 
 // 📌 Håndter innlogging (verifiserer bruker fra SQLite)
