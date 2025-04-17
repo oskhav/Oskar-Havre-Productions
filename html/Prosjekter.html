@@ -1,58 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
 <head>
-  <title>Oskar Nygår HavreS</title>
-  <link rel="stylesheet" href="../CSS/test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleri</title>
+  <link rel="stylesheet" href="../CSS/gallery.css">
 </head>
 <body>
   <header>
-    <!-- Navigasjonsmeny -->
-    <nav>
-      <ul>
-        <li><a href="../index.html">Hjem</a></li>
-        <li><a href="Om.html">Om</a></li>
-        <li><a href="Prosjekter.html">Prosjekter</a></li>
-        <li><a href="Kontakt.html">Kontakt</a></li>
-        <li><a href="log.html">Dokumentasjon</a></li>
-      </ul>
-    </nav>
+    <h1>"Behind the Lens: The Power of Creative Collaboration"</h1>
   </header>
-  <h1>Mine beste prosjekter</h1>
-  
-  <div class="content3">
-    <div class="grid3">
-      <div class="box3" style="background-image: url('../Bilder/mine bilder/prosjekt1.jpg');" onclick="location.href='Tetris.html';">
-        <div class="overlay3">
-          <p>Tetris-spill</p>
-          <a href="Tetris.html" target="_blank">Se prosjekt</a>
-        </div>
-      </div>
-      <div class="box3" style="background-image: url('../Bilder/mine bilder/rød blomst.JPEG');" onclick="location.href='../html/fritid bilder.html';">
-        <div class="overlay3">
-          <p>Bilder jeg har tatt på fritiden</p>
-          <a href="../html/fritid bilder.html" target="_blank">Bilder</a>
-        </div>
-      </div>
-      <div class="box3" style="background-image: url('../Bilder/matsvinn.png');" onclick="location.href='../html/Bærekraft/Hjem.html';">
-        <div class="overlay3">
-          <p>Reduser matsvinn</p>
-          <a href="../html/Bærekraft/Hjem.html" target="_blank">Reduser matsvinn</a>
-        </div>
-      </div>
+  <main class="gallery">
+    <div class="gallery-item">
+      <img src="../Bilder/image1.jpg" alt="Behind the Beat: Stormøsa">
+      <h2>Behind the Beat: Stormøsa</h2>
+      <a href="#">Se mer</a>
     </div>
-  </div>
-
-  <!-- Modal for bilder -->
-  <div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
-    <div id="caption"></div>
-  </div>
-
-  <footer>
-    <!-- Footer-innhold -->
-  </footer>
-
-  <script src="../javaskript/prosjekt.js"></script>
+    <div class="gallery-item">
+      <img src="../Bilder/image2.jpg" alt="Explorer's Precision">
+      <h2>Explorer's Precision</h2>
+      <a href="#">Se mer</a>
+    </div>
+    <div class="gallery-item">
+      <img src="../Bilder/image3.jpg" alt="On Location with April">
+      <h2>On Location with April</h2>
+      <a href="#">Se mer</a>
+    </div>
+    <div class="gallery-item">
+      <img src="../Bilder/image4.jpg" alt="Rainy Days and Teamwork">
+      <h2>Rainy Days and Teamwork</h2>
+      <a href="#">Se mer</a>
+    </div>
+    <div class="gallery-item">
+      <img src="../Bilder/image5.jpg" alt="The Fjord">
+      <h2>The Fjord</h2>
+      <a href="#">Se mer</a>
+    </div>
+    <div class="gallery-item">
+      <img src="../Bilder/image6.jpg" alt="A Lofoten Love Affair">
+      <h2>A Lofoten Love Affair</h2>
+      <a href="#">Se mer</a>
+    </div>
+  </main>
 </body>
 </html>
