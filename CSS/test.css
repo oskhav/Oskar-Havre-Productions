@@ -425,7 +425,7 @@ header nav ul {
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 20px;
+  gap: 40px; /* Avstand mellom boksene */
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -458,7 +458,7 @@ header nav ul {
   color: #333;
 }
 
-gallery-item a {
+.gallery-item a {
   display: inline-block;
   margin: 10px 0;
   color: #007bff;
@@ -466,6 +466,6 @@ gallery-item a {
   font-weight: bold;
 }
 
-gallery-item a:hover {
+.gallery-item a:hover {
   text-decoration: underline;
 }
