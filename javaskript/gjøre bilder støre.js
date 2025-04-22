@@ -1,25 +1,25 @@
-// prosjekt.js
-// Hent modal-elementet
-var modal = document.getElementById("myModal");
+// Finn modal-elementene
+const modal = document.getElementById('myModal');
+const modalImg = document.getElementById('img01');
+const closeBtn = document.querySelector('.close');
 
-// Hent bildet og modal-bildeelementet
-var modalImg = document.getElementById("img01");
-
-// Hent alle bilder i grid4
-var images = document.querySelectorAll(".grid4 .box4 img");
-
-// Legg til klikkhendelse for hvert bilde
-images.forEach(function(img) {
-  img.onclick = function() {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-  }
+// Når et bilde i grid-en klikkes på:
+document.querySelectorAll('.box4 img').forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+    modalImg.alt = img.alt; // beholder alt-tekst
+  });
 });
 
-// Hent <span> elementet som lukker modalen
-var span = document.getElementsByClassName("close")[0];
+// Lukk når du klikker på krysset
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
 
-// Når brukeren klikker på <span> (x), lukk modalen
-span.onclick = function() {
-  modal.style.display = "none";
-}
+// Lukk også hvis brukeren klikker utenfor bildet
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
