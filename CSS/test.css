@@ -304,41 +304,30 @@ contact-form5 input,
 
 /*Mine bilder*/
 .grid4 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
-  column-gap: 20px; /* Mellomrom mellom kolonnene */
-  row-gap: 10px;    /* Mindre mellomrom mellom radene */
+  /* Setter opp tre kolonner med jevn avstand */
+  column-count: 3;
+  column-gap: 20px;
   padding: 20px;
-  box-sizing: border-box;
   background-color: #fff;
+  box-sizing: border-box;
 }
 
 .box4 {
-  overflow: hidden;
-  box-shadow: none;
-  background-color: transparent;
+  /* Inline-block slik at hvert .box4-element oppfører seg som ett element i kolonne‑flowen */
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 20px;  /* 20px mellom hver boks vertikalt */
   transition: transform 0.2s ease;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .box4 img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 0; /* Ingen runde kanter */
-  object-fit: cover;
-}
-
-
-/* logg */
-.content {
-  padding: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 /* ======= TABLE ======= */
