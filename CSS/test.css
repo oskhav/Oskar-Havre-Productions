@@ -476,3 +476,78 @@ header nav ul {
 .gallery-item a:hover {
   text-decoration: underline;
 }
+
+/* Global responsiv styling for mobil */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Reduser fontstørrelse for bedre lesbarhet */
+  }
+
+  header nav ul {
+    flex-direction: column; /* Gjør navigasjonen vertikal */
+    gap: 10px;
+  }
+
+  .hero {
+    height: auto; /* Tilpass høyden */
+    padding: 20px;
+  }
+
+  .content h1 {
+    font-size: 2.5em; /* Reduser fontstørrelsen */
+    margin-bottom: 150px;
+  }
+
+  .text-section, .text-section2 {
+    padding: 20px;
+  }
+
+  .grid3 {
+    grid-template-columns: 1fr; /* Én kolonne på mobil */
+  }
+
+  .contact-info5 {
+    grid-template-columns: 1fr; /* Én kolonne for kontaktinfo */
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* Én kolonne for galleriet */
+  }
+
+  .box4 {
+    margin: 0 0 10px; /* Mindre margin mellom bokser */
+  }
+}
+
+/* Skjul menyen som standard på mobil */
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  header nav ul.active {
+    display: flex; /* Vis menyen når den er aktiv */
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
