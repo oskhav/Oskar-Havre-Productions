@@ -1,9 +1,9 @@
-
+require("dotenv").config();
 const express = require("express");
 const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const db = require("./db"); // Importer SQLite-tilkoblingen
+const db = require("./DB"); // Importer SQLite-tilkoblingen
 
 const app = express();
 const PORT = 3000;
