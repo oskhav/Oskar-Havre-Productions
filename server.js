@@ -4,13 +4,14 @@ const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const db = require("./DB"); // Importer SQLite-tilkoblingen
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set("view engine", "ejs");
 
 app.use(
