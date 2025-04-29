@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Gjør at innholdet plasseres vertikalt */
     align-items: center;
     height: 100vh; /* Full høyde for sentrering */
 }
@@ -12,7 +12,7 @@ body {
 h2 {
     color: #333; /* Mørk grå tekst for overskriften */
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0; /* Legger til avstand over og under overskriften */
     font-size: 24px; /* Konsistent fontstørrelse */
 }
 
@@ -24,6 +24,7 @@ form {
     width: 100%;
     max-width: 400px; /* Begrens bredde */
     box-sizing: border-box;
+    margin-top: 20px; /* Legger til avstand mellom overskriften og skjemaet */
 }
 
 form label {

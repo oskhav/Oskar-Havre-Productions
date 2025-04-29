@@ -1,50 +1,62 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no"> <!-- Angir at dokumentet er en HTML5-fil og språket er norsk -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tetris</title>
-  <link rel="stylesheet" href="../CSS/test.css">
-  <link rel="stylesheet" href="../CSS/Tetris.css">
+  <meta charset="UTF-8"> <!-- Setter tegnsettet til UTF-8 for å støtte spesialtegn -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- Gjør siden responsiv ved å tilpasse bredden til enhetens skjerm -->
+  <title>Tetris</title> <!-- Tittel som vises i nettleserfanen -->
+  <link rel="stylesheet" href="../CSS/test.css"> 
+  <!-- Kobler til en generell CSS-fil for nettstedet -->
+  <link rel="stylesheet" href="../CSS/Tetris.css"> 
+  <!-- Kobler til en spesifikk CSS-fil for Tetris-siden -->
 </head>
 <body>
+  <!-- Header-seksjon -->
   <header>
     <nav>
-      <ul>
-        <li><a href="../index.html">Hjem</a></li>
-        <li><a href="Om.html">Om</a></li>
-        <li><a href="Prosjekter.html">Prosjekter</a></li>
-        <li><a href="Kontakt.html">Kontakt</a></li>
-        <li><a href="log.html">Dokumentasjon</a></li>
+      <ul> <!-- Navigasjonsmeny -->
+        <li><a href="../index.html">Hjem</a></li> <!-- Lenke til hjemmesiden -->
+        <li><a href="Om.html">Om</a></li> <!-- Lenke til "Om"-siden -->
+        <li><a href="Prosjekter.html">Prosjekter</a></li> <!-- Lenke til prosjektsiden -->
+        <li><a href="Kontakt.html">Kontakt</a></li> <!-- Lenke til kontaktsiden -->
+        <li><a href="log.html">Dokumentasjon</a></li> <!-- Lenke til dokumentasjonssiden -->
       </ul>
     </nav>
   </header>
 
   <!-- Startskjerm -->
   <div class="start-screen" id="startScreen">
-      <h1>Velkommen til Tetris</h1>
-      <button onclick="startGame()">Start Spill</button>
+      <h1>Velkommen til Tetris</h1> <!-- Overskrift for startskjermen -->
+      <button onclick="startGame()">Start Spill</button> 
+      <!-- Knapp for å starte spillet, kaller funksjonen `startGame()` -->
   </div>
 
   <!-- Spillkontainer -->
   <div class="container" id="gameContainer">
       <main>
-          <canvas id="tetris" width="240" height="400"></canvas>
+          <canvas id="tetris" width="240" height="400"></canvas> 
+          <!-- Canvas-element for å tegne Tetris-spillet -->
           <aside>
-              <h2>Poeng: <span id="score">0</span></h2>
-              <h2>Nivå: <span id="level">1</span></h2>
-              <h2>Linjer: <span id="lines">0</span></h2>
-              <button class="restart-btn" onclick="restartGame()">Start på nytt</button>
+              <h2>Poeng: <span id="score">0</span></h2> 
+              <!-- Viser poengsummen, oppdateres dynamisk -->
+              <h2>Nivå: <span id="level">1</span></h2> 
+              <!-- Viser nivået, oppdateres dynamisk -->
+              <h2>Linjer: <span id="lines">0</span></h2> 
+              <!-- Viser antall linjer som er fjernet, oppdateres dynamisk -->
+              <button class="restart-btn" onclick="restartGame()">Start på nytt</button> 
+              <!-- Knapp for å starte spillet på nytt, kaller funksjonen `restartGame()` -->
           </aside>
       </main>
   </div>
 
   <!-- Game Over-skjerm -->
   <div class="game-over" id="gameOverScreen">
-      <h1>Game Over</h1>
-      <button onclick="restartGame()">Start på nytt</button>
+      <h1>Game Over</h1> <!-- Overskrift som vises når spillet er over -->
+      <button onclick="restartGame()">Start på nytt</button> 
+      <!-- Knapp for å starte spillet på nytt, kaller funksjonen `restartGame()` -->
   </div>
 
-  <script src="../javaskript/Tetris.js"></script>
+  <script src="../javaskript/Tetris.js"></script> 
+  <!-- Kobler til JavaScript-filen som inneholder logikken for Tetris-spillet -->
 </body>
 </html>
