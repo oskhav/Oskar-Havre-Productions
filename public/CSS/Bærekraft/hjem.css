@@ -1,0 +1,408 @@
+/* ======= RESET STILER ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* ======= HODE ======= */
+hode {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hode nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+hode nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+hode nav ul li a:hover {
+    background-color: white;
+    color: rgb(15, 15, 15);
+    border-radius: 5px;
+}
+
+/* ======= HELTSEKSJON ======= */
+.heltseksjon {
+    background: url("../../Bilder/Bærekraft/braaa.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(241, 248, 245);
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end; /* Flytt innhold til høyre */
+    align-items: center;
+    text-align: right; /* Juster teksten til høyre */
+    padding-right: 5%; /* Avstand fra høyre kant */
+    padding-left: 5%; /* Sikkerhetsmargin fra venstre */
+}
+
+.heltseksjon .innhold {
+    max-width: 50%; /* Begrens bredde til halvparten av seksjonen */
+}
+
+.heltseksjon .innhold h1 {
+    font-size: 4em;
+    color: #0a5207;
+    margin-bottom: 10px; /* Juster avstand mellom hovedoverskrift og underoverskrift */
+}
+
+h4 {
+font-size: 2em;
+margin-top: 20px;
+margin-bottom: 20px;
+
+}
+
+.align-left {
+    display: flex;
+    flex-direction: column; /* Alt står i én vertikal linje */
+    align-items: flex-start; /* Juster til venstre */
+    text-align: left; /* Justerer tekst til venstre */
+    padding: 10px; /* Valgfritt: litt innrykk */
+    margin: 0; /* Fjerner ekstra margin */
+  }
+
+.heltseksjon .innhold p {
+    font-size: 1.5em;
+    color: #0a5207;
+    margin-top: 0; /* Fjern ekstra avstand over underoverskriften */
+    font-weight: bold; /* Fremhev teksten hvis ønskelig */
+    text-align: center;
+}
+
+.rull-ned {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: solid aliceblue;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    animation: sprett 1.5s infinite;
+}
+
+@keyframes sprett {
+    0%, 100% {
+      transform: rotate(45deg) translateY(0);
+    }
+    50% {
+      transform: rotate(45deg) translateY(10px);
+    }
+}
+
+/* ======= TEKSTSEKSJON ======= */
+.tekstseksjon {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tekstseksjon h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tekstseksjon p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.tekstseksjon img {
+    float: left;
+    margin-right: 20px;
+    max-width: 50%;
+    border-radius: 0;
+}
+
+/* Fakta */
+.tekstseksjon2 {
+    padding: 40px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.tekstseksjon2 h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tekstseksjon2 p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.tekstseksjon2 img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.innhold2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+@media (max-width: 768px) {
+    .innhold2 {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .innhold2 img {
+      margin-right: 0;
+      max-width: 80%;
+    }
+}
+
+/*sirkelgraf*/
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;  /* Mindre margin */
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+table {
+    margin: 10px auto; /* Mindre margin */
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+  
+
+/*tabell*/
+
+/* Generelle stilinnstillinger */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Beholder for innholdet */
+  .container {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Overskrifter */
+  h1, h2 {
+    text-align: center;
+    color: #0a5207;
+  }
+  
+  /* Tabellstil */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #0a5207;
+    color: white;
+  }
+  
+  table td {
+    background-color: #f9f9f9;
+  }
+  
+  table td[contenteditable="true"]:focus {
+    background-color: #e0ffe0;
+    outline: none;
+    border: 1px solid #0a5207;
+  }
+  
+  /* Knapp */
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #0a5207;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #085c02;
+  }
+
+  /*sirkel graf*/
+
+  
+  
+  /*spill*/
+
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Lys bakgrunn */
+}
+
+h1 {
+    color: #4CAF50; /* Farge for tittel */
+    margin-top: 30px;
+    font-size: 2.5em;
+}
+
+#score-container {
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-button:hover {
+    background-color: #45a049;
+}
+
+#bins {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.bin {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #4CAF50;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bin:hover {
+    transform: scale(1.05);
+    background-color: #e8e8e8;
+}
+
+#items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    cursor: grab;
+    margin: 15px;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item:active {
+    transform: scale(1.1);
+}
+
+.item[data-bin="correct"] {
+    border: 3px solid #4CAF50;
+}
+
+.item[data-bin="wrong"] {
+    border: 3px solid #E74C3C;
+}
+
+#timer {
+    font-size: 1.5em;
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+

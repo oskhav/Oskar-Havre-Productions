@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no"> <!-- Angir at dokumentet er en HTML5-fil og språket er norsk -->
+
+<head>
+  <meta charset="UTF-8"> <!-- Setter tegnsettet til UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Gjør siden responsiv -->
+  <title>Kontakt</title> <!-- Tittel som vises i nettleserfanen -->
+  <link rel="stylesheet" href="../CSS/test.css"> <!-- Kobler til CSS-filen for styling -->
+  <script src="../javaskript/mail.js"></script> <!-- Kobler til en JavaScript-fil for funksjonalitet -->
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul> <!-- Navigasjonsmeny -->
+        <li><a href="../index.html">Hjem</a></li> <!-- Lenke til hjemmesiden -->
+        <li><a href="Om.html">Om</a></li> <!-- Lenke til "Om"-siden -->
+        <li><a href="Prosjekter.html">Prosjekter</a></li> <!-- Lenke til prosjektsiden -->
+        <li><a href="Kontakt.html">Kontakt</a></li> <!-- Lenke til kontaktsiden -->
+        <li><a href="log.html">Dokumentasjon</a></li> <!-- Lenke til dokumentasjonssiden -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Kontaktseksjon -->
+  <div class="content5">
+    <h1>Kontakt meg</h1> <!-- Overskrift for kontaktsiden -->
+
+    <!-- Kontaktinformasjon -->
+    <div class="contact-info5">
+      <div class="info-box5">
+        <p><strong>E-post:</strong> oskarhavre@icloud.com</p> <!-- Viser e-postadressen -->
+      </div>
+      <div class="info-box5">
+        <p><strong>Telefon:</strong> 94137618</p> <!-- Viser telefonnummeret -->
+      </div>
+      <div class="info-box5">
+        <p><strong>Adresse:</strong> Bergen, Norge</p> <!-- Viser adressen -->
+      </div>
+    </div>
+
+    <!-- Kontaktformular -->
+    <div class="contact-form5">
+      <h2>Send meg en melding</h2> <!-- Overskrift for meldingsseksjonen -->
+      <button type="submit" onclick="sendMail()">Send Melding</button> 
+      <!-- Knapp for å sende en melding, kaller funksjonen `sendMail()` -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Footer-innhold kan legges til her -->
+  </footer>
+
+</body>
+</html>

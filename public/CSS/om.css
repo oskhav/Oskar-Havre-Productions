@@ -1,0 +1,30 @@
+/* ======= HEADER ======= */
+header {
+  background-color: black; /* Svart bakgrunnsfarge */
+  color: white; /* Hvit tekstfarge */
+  padding: 20px; /* Innsidemargin rundt innholdet */
+  display: flex; /* Bruker flexbox for justering */
+  justify-content: center; /* Sentrerer navigasjonsmenyen horisontalt */
+  align-items: center; /* Sentrerer innholdet vertikalt */
+}
+
+header nav ul {
+  display: flex; /* Viser listen horisontalt */
+  list-style: none; /* Fjerner standard punktliste-stil */
+  gap: 15px; /* Avstand mellom hver lenke */
+}
+
+header nav ul li a {
+  color: white; /* Tekstfarge */
+  text-decoration: none; /* Fjerner understrek */
+  font-size: 18px; /* Skriftstørrelse */
+  padding: 5px 10px; /* Litt innvendig marg for klikkbarhet */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Glatte overganger */
+}
+
+/* Hover-effekt for navigasjonslenker */
+header nav ul li a:hover {
+  background-color: white; /* Hvit bakgrunn ved hover */
+  color: black; /* Svart tekst ved hover */
+  border-radius: 5px; /* Runde hjørner på lenken */
+}

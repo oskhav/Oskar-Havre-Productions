@@ -1,104 +1,241 @@
-require("dotenv").config(); // Laster miljøvariabler fra en .env-fil.
-const express = require("express"); // Importerer Express for å lage serveren.
-const bcrypt = require("bcrypt"); // Importerer bcrypt for å hashe passord.
-const bodyParser = require("body-parser"); // Middleware for å håndtere POST-data.
-const session = require("express-session"); // Importerer session for å håndtere brukerøkter.
-const db = require("./DB"); // Importerer SQLite-databaseforbindelsen fra en egen fil.
-const path = require("path"); // Importerer path for å håndtere fil- og mappestier.
+const express = require('express'); 
 
-const app = express(); // Oppretter en Express-app.
-const PORT = 3000; // Setter porten serveren skal kjøre på.
+const sqlite3 = require('sqlite3').verbose(); 
 
-// Middleware
+const bcrypt = require('bcrypt'); // Importerer bcrypt for passordhashing 
+
+const session = require('express-session'); // Importerer session for å holde brukeren innlogget 
+
+const bodyParser = require('body-parser'); 
+
+const path = require('path'); 
+
+ 
+
+const app = express(); 
+
+const db = new sqlite3.Database('database.db'); 
+
+ 
+
+const saltRounds = 10; // Antall salt-runder for bcrypt 
+
+ 
+
+// Middleware 
+
+app.set('view engine', 'ejs'); 
+
+app.set('views', path.join(__dirname, 'views')); 
+
+app.use(express.static(path.join(__dirname, 'public'))); 
+
 app.use(bodyParser.urlencoded({ extended: true })); 
-// Håndterer URL-kodede data fra skjemaer.
 
-app.use('/public', express.static(path.join(__dirname, 'public'))); 
-// Setter opp en statisk mappe for CSS, bilder osv.
+ 
 
-app.set("view engine", "ejs"); 
-// Setter EJS som visningsmotor for å rendere HTML-sider.
+// Konfigurer session 
 
-app.use(
-  session({
-    secret: "hemmelignøkkel", // Nøkkel for å signere session-data.
-    resave: false, // Hindrer at session-data lagres på nytt hvis det ikke er endret.
-    saveUninitialized: true, // Lagre nye sessioner selv om de ikke er modifisert.
-  })
-);
+app.use(session({ 
 
-// 📌 Rute: Hovedside (Login)
-app.get("/", (req, res) => {
-  res.render("login", { message: "" }); 
-  // Rendrer login.ejs og sender en tom melding som standard.
-});
+    secret: 'hemmelignøkkel', // Endre dette til en mer sikker nøkkel i produksjon 
 
-// 📌 Rute: Registrering
-app.get("/register", (req, res) => {
-  res.render("register"); 
-  // Rendrer register.ejs for å vise registreringsskjemaet.
-});
+    resave: false, 
 
-// 📌 Håndter registrering (lagrer bruker i SQLite)
-app.post("/register", async (req, res) => {
-  const { username, password } = req.body; // Henter brukernavn og passord fra skjemaet.
-  const saltRounds = 12; // Antall runder for hashing.
+    saveUninitialized: true, 
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, saltRounds); 
-    // Hasher passordet med bcrypt.
+    cookie: { secure: false } // Settes til true hvis du bruker HTTPS 
 
-    db.get("SELECT * FROM users WHERE username = ?", [username], (err, user) => {
-      if (user) {
-        return res.render("register", { message: "Brukernavnet er allerede tatt!" }); 
-        // Viser feilmelding hvis brukernavnet allerede finnes.
-      }
+})); 
 
-      db.run("INSERT INTO users (username, password) VALUES (?, ?)", [username, hashedPassword], (err) => {
-        if (err) {
-          console.error("Feil ved registrering:", err.message); 
-          // Logger feil hvis noe går galt.
-          return res.send("Feil ved registrering.");
-        }
-        res.redirect("/"); 
-        // Omdirigerer til hovedsiden etter vellykket registrering.
-      });
-    });
-  } catch (err) {
-    console.error(err); 
-    res.send("Feil ved registrering."); 
-    // Håndterer eventuelle feil under hashing.
-  }
-});
+ 
 
-// 📌 Håndter innlogging (verifiserer bruker fra SQLite)
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
+// Hovedside: viser brukere, innlegg og kommentarer 
 
-  db.get("SELECT * FROM users WHERE username = ?", [username], async (err, user) => {
-    if (!user) {
-      return res.render("login", { message: "Brukeren finnes ikke!" });
-    }
+app.get('/', (req, res) => { 
 
-    const match = await bcrypt.compare(password, user.password);
+    db.all('SELECT * FROM users', (err, users) => { 
 
-    if (match) {
-      req.session.user = user;
-      res.send(`<h2>Velkommen, ${username}!</h2><a href='/logout'>Logg ut</a>`);
-    } else {
-      res.render("login", { message: "Feil passord!" });
-    }
-  });
-});
+        if (err) return res.status(500).send("Database error"); 
 
-// 📌 Logg ut
-app.get("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/");
-  });
-});
+ 
 
-// Start serveren
-app.listen(PORT, () => {
-  console.log(`Server kjører på http://localhost:${PORT}`);
-});
+        db.all('SELECT Posts.*, users.username FROM Posts JOIN users ON Posts.user_id = users.id', (err, posts) => { 
+
+            if (err) return res.status(500).send("Database error"); 
+
+ 
+
+            db.all('SELECT Comments.*, users.username FROM Comments JOIN users ON Comments.user_id = users.id', (err, comments) => { 
+
+                if (err) return res.status(500).send("Database error"); 
+
+ 
+
+                res.render('index', { user: req.session.user, users, posts, comments }); 
+
+            }); 
+
+        }); 
+
+    }); 
+
+}); 
+
+ 
+
+// ✅ Registrer ny bruker (med bcrypt-passordhashing) 
+
+app.post('/register', async (req, res) => { 
+
+    const { name, username, email, password } = req.body; 
+
+ 
+
+    // Sjekk om brukernavnet eller e-posten allerede finnes 
+
+    db.get('SELECT * FROM users WHERE username = ? OR email = ?', [username, email], async (err, user) => { 
+
+        if (user) return res.send("Brukernavn eller e-post er allerede i bruk."); 
+
+ 
+
+        // Hash passordet før lagring 
+
+        const hashedPassword = await bcrypt.hash(password, saltRounds); 
+
+ 
+
+        db.run('INSERT INTO users (name, username, email, password) VALUES (?, ?, ?, ?)',  
+
+            [name, username, email, hashedPassword],  
+
+            (err) => { 
+
+                if (err) return res.status(500).send("Feil ved oppretting av bruker."); 
+
+                res.redirect('/'); 
+
+            } 
+
+        ); 
+
+    }); 
+
+}); 
+
+ 
+
+// ✅ Innlogging (med bcrypt-passordsjekk) 
+
+app.post('/login', (req, res) => { 
+
+    const { username, password } = req.body; 
+
+ 
+
+    db.get('SELECT * FROM users WHERE username = ?', [username], async (err, user) => { 
+
+        if (!user) return res.send("Feil brukernavn eller passord."); 
+
+ 
+
+        // Sammenlign passord med bcrypt 
+
+        const match = await bcrypt.compare(password, user.password); 
+
+        if (!match) return res.send("Feil brukernavn eller passord."); 
+
+ 
+
+        // Lagre bruker i session 
+
+        req.session.user = user; 
+
+        res.redirect('/'); 
+
+    }); 
+
+}); 
+
+ 
+
+// ✅ Logg ut 
+
+app.post('/logout', (req, res) => { 
+
+    req.session.destroy(() => { 
+
+        res.redirect('/'); 
+
+    }); 
+
+}); 
+
+ 
+
+// ✅ Legg til et nytt innlegg (kun for innloggede brukere) 
+
+app.post('/add-post', (req, res) => { 
+
+    if (!req.session.user) return res.status(401).send("Du må være innlogget for å poste."); 
+
+ 
+
+    const { title, content } = req.body; 
+
+    db.run('INSERT INTO Posts (user_id, title, content) VALUES (?, ?, ?)',  
+
+        [req.session.user.id, title, content],  
+
+        (err) => { 
+
+            if (err) return res.status(500).send("Feil ved lagring av innlegg."); 
+
+            res.redirect('/'); 
+
+        } 
+
+    ); 
+
+}); 
+
+ 
+
+// ✅ Legg til en kommentar (kun for innloggede brukere) 
+
+app.post('/add-comment', (req, res) => { 
+
+    if (!req.session.user) return res.status(401).send("Du må være innlogget for å kommentere."); 
+
+ 
+
+    const { post_id, comment } = req.body; 
+
+    db.run('INSERT INTO Comments (post_id, user_id, comment) VALUES (?, ?, ?)',  
+
+        [post_id, req.session.user.id, comment],  
+
+        (err) => { 
+
+            if (err) return res.status(500).send("Feil ved lagring av kommentar."); 
+
+            res.redirect('/'); 
+
+        } 
+
+    ); 
+
+}); 
+
+ 
+
+// Starter serveren 
+
+const PORT = 3000; 
+
+app.listen(PORT, () => { 
+
+    console.log(`Server kjører på http://localhost:${PORT}`); 
+
+}); 

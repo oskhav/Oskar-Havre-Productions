@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skildesorteringsspill</title>
+    <link rel="stylesheet" href="../../CSS/Bærekraft/hjem.css">
+</head>
+<hode>
+    <nav>
+      <ul>
+        <li><a href="../../html/Bærekraft/Hjem.html">Hjem</a></li>
+        <li><a href="Fakta.html">Fakta</a></li>
+        <li><a href="tabell.html">Utfordring</a></li>
+        <li><a href="Bir.html">BIR</a></li>
+        <li><a href="Spill.html">Spill</a></li>
+  
+
+      </ul>
+    </nav>
+  </hode>
+    <h1>Kildesorteringsspill</h1>
+    <p>Trekk objektene til riktig beholder før tiden går ut!</p>
+    <div id="score-container">
+        <p>Poeng: <span id="score">0</span></p>
+        <p>Tid igjen: <span id="timer">60</span> sekunder</p>
+    </div>
+    <button id="start-button" onclick="startGame()">Start Spillet</button>
+    <div id="bins" style="display: none;">
+        <div id="papir" class="bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Papir</p>
+        </div>
+        <div id="plast" class="bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Plast</p>
+        </div>
+        <div id="mat" class="bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Matavfall</p>
+        </div>
+        <div id="glass" class="bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Glass</p>
+        </div>
+        <div id="rest" class="bin" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Restavfall</p>
+        </div>
+    </div>
+    <div id="items" style="display: none;"></div>
+    <script src="../../javaskript/Bærekraft/spill.js"></script>
+</body>
+</html>
+
+
+
+
+
