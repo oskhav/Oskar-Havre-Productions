@@ -1,2 +1,0 @@
-INSERT INTO Eier('personnommer','Mobilnomer','fornavn','e-post','alder');
-VALUES('30080812345','94137618','oskar','oskarhavre@icloud.com','15');
