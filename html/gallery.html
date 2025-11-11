@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleri - Oskar Havre</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/components.css">
+  <link rel="stylesheet" href="../CSS/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">Oskar Havre</a>
+      <button class="mobile-menu-btn">☰</button>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Hjem</a></li>
+          <li><a href="about.html" class="nav-link">Om Meg</a></li>
+          <li><a href="projects.html" class="nav-link">Prosjekter</a></li>
+          <li><a href="gallery.html" class="nav-link">Galleri</a></li>
+          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('../images/gallery-hero.jpg') center/cover;">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Bilde Galleri</h1>
+        <p class="hero-subtitle">Utforsk mine fotografier</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="gallery-controls">
+        <h2 class="section-title">Mine Bilder</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Alle</button>
+          <button class="filter-btn" data-filter="nature">Natur</button>
+          <button class="filter-btn" data-filter="portrait">Portretter</button>
+          <button class="filter-btn" data-filter="urban">Urban</button>
+          <button class="filter-btn" data-filter="blackwhite">Sort/Hvitt</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Nature Images -->
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/1.jpg" alt="Blomst" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Blomst</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/2.jpg" alt="Fjell" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Fjellandskap</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/3.jpg" alt="Fyrtårn" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Kystlinje</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/4.jpg" alt="Liten Blomst" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Detalj</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/5.jpg" alt="Tre" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Skog</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+          <img src="../Bilder/mine bilder/6.jpg" alt="Tre" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Vinter</h3>
+              <p>Natur • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Urban Images -->
+        <div class="gallery-item" data-category="urban">
+          <img src="../Bilder/mine bilder/7.jpg" alt="Bylandskap" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Byen</h3>
+              <p>Urban • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="urban">
+          <img src="../Bilder/mine bilder/8.jpg" alt="Arkitektur" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Moderne Arkitektur</h3>
+              <p>Urban • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portrait Images -->
+        <div class="gallery-item" data-category="portrait">
+          <img src="../Bilder/mine bilder/9.jpg" alt="Portrett" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Portrett</h3>
+              <p>Portrett • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="portrait">
+          <img src="../Bilder/mine bilder/10.jpg" alt="Portrett" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Uttrykk</h3>
+              <p>Portrett • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Black & White Images -->
+        <div class="gallery-item" data-category="blackwhite">
+          <img src="../Bilder/mine bilder/11.jpg" alt="Sort/Hvitt" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Kontraster</h3>
+              <p>Sort/Hvitt • 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="blackwhite">
+          <img src="../Bilder/mine bilder/12.jpg" alt="Sort/Hvitt" loading="lazy">
+          <div class="image-overlay">
+            <div class="image-info">
+              <h3>Stemning</h3>
+              <p>Sort/Hvitt • 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-3">
+        <button class="btn btn-primary" id="loadMore">Last Inn Flere Bilder</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for enlarged image view -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Forstørret bilde">
+    <div class="modal-caption">
+      <h3 id="modalTitle">Bilde Tittel</h3>
+      <p id="modalDescription">Bilde beskrivelse</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Kontakt</h3>
+          <p>Email: oskarhavre@icloud.com</p>
+          <p>Telefon: 941 37 618</p>
+        </div>
+        <div class="footer-section">
+          <h3>Følg Meg</h3>
+          <p>Instagram</p>
+          <p>YouTube</p>
+        </div>
+        <div class="footer-section">
+          <h3>Galleri</h3>
+          <p>Naturfotografering</p>
+          <p>Portretter</p>
+          <p>Urbant</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Oskar Havre</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/gallery.js"></script>
+</body>
+</html>

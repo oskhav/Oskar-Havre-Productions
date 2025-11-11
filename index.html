@@ -3,54 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oskar Havre </title>
-  <link rel="stylesheet" href="CSS/test.css"> <!--link til css-->
+  <title>Oskar Havre - Foto & Video</title>
+  <meta name="description" content="Profesjonell foto og video tjenester. Fanget øyeblikk, fortalt historier.">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/components.css">
+  <link rel="stylesheet" href="CSS/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+  <!-- Header -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Hjem</a></li>
-        <li><a href="html/Om.html">Om</a></li>
-        <li><a href="html/Prosjekter.html">Prosjekter</a></li>
-        <li><a href="html/Kontakt.html">Kontakt</a></li>
-        <li><a href="html/log.html">Dokumentasjon</a></li>
-        <li><a href="html/komenter.html">Komentar</a></li>
- 
-      </ul>
-    </nav>
+    <div class="container header-container">
+      <a href="index.html" class="logo">Oskar Havre</a>
+      <button class="mobile-menu-btn">☰</button>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Hjem</a></li>
+          <li><a href="../Nettside/html/" class="nav-link">Om Meg</a></li>
+          <li><a href="projects.html" class="nav-link">Prosjekter</a></li>
+          <li><a href="gallery.html" class="nav-link">Galleri</a></li>
+          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  
+
   <!-- Hero Section -->
   <section class="hero">
-    <div class="content">
-      <h1>Oskar Nygård Havre</h1>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Forteller Historier Gjennom Linse</h1>
+        <p class="hero-subtitle">Foto & Video som fanger øyeblikk og skaper følelser</p>
+        <a href="projects.html" class="btn btn-primary">Se Mine Prosjekter</a>
+      </div>
+    </div>
+    <div class="scroll-down"></div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="../images/about-preview.jpg" alt="Oskar Havre">
+        </div>
+        <div class="about-text">
+          <h2>Min Historie</h2>
+          <p>Jeg er 16 år og går første året på informasjonsteknologi og medieproduksjon på Amalie Skram VGS i Bergen. Med dysleksi har jeg funnet min stemme gjennom kameraets linse.</p>
+          <p>Jeg forteller historier med kameraet mitt, og min drøm er å leve av historiene jeg forteller. Dette er bare begynnelsen på reisen min.</p>
+          <a href="about.html" class="btn btn-primary">Les Mer Om Meg</a>
+        </div>
+      </div>
     </div>
   </section>
-  
-  <!-- Text Section -->
-  <section class="text-section">
-    <div class="content">
-      <h2>- Min drøm er å kunne leve av historiene jeg forteller.</h2>
-      <p>
-        <img src="Bilder/IMG_1856.jpg" alt="Portrett av Oskar">
-        Jeg er 16 år og går første året på informasjonsteknologi og medieproduksjon på Amalie Skram VGS i Bergen. Jeg har dysleksi, og ja, jeg har brukt et retteprogram på teksten her! <br><br>
-        Fordi jeg har store lese- og skrivevansker, liker jeg å uttrykke meg gjennom kameralinsen. Jeg forteller historier med kameraet mitt. Min drøm er å leve av historiene jeg forteller. <br><br>
-        Håper du vil klikke deg inn på siden min og se mine bilder og filmer. Dette er bare begynnelsen.
-      </p>
+
+  <!-- Featured Projects -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Utvalgte Prosjekter</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="../images/project1.jpg" alt="Bærekraftsprosjekt">
+          <div class="project-overlay">
+            <h3 class="project-title">Bærekraftsprosjekt</h3>
+            <p class="project-category">Foto & Video</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="../images/project2.jpg" alt="Portrettfotografering">
+          <div class="project-overlay">
+            <h3 class="project-title">Portrett Serie</h3>
+            <p class="project-category">Fotografering</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="../images/project3.jpg" alt="Naturvideo">
+          <div class="project-overlay">
+            <h3 class="project-title">Natur Dokumentar</h3>
+            <p class="project-category">Videoproduksjon</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="projects.html" class="btn btn-secondary">Se Alle Prosjekter</a>
+      </div>
     </div>
   </section>
-    <section class="text-section">
-    <div class="content">
-      <h2>- Min drøm er å kunne leve av historiene jeg forteller.</h2>
-      <p>
-        <img src="Bilder/IMG_1856.jpg" alt="Portrett av Oskar">
-        Jeg er 16 år og går første året på informasjonsteknologi og medieproduksjon på Amalie Skram VGS i Bergen. Jeg har dysleksi, og ja, jeg har brukt et retteprogram på teksten her! <br><br>
-        Fordi jeg har store lese- og skrivevansker, liker jeg å uttrykke meg gjennom kameralinsen. Jeg forteller historier med kameraet mitt. Min drøm er å leve av historiene jeg forteller. <br><br>
-        Håper du vil klikke deg inn på siden min og se mine bilder og filmer. Dette er bare begynnelsen.
-      </p>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Kontakt</h3>
+          <p>Email: oskarhavre@icloud.com</p>
+          <p>Telefon: 941 37 618</p>
+          <p>Bergen, Norge</p>
+        </div>
+        <div class="footer-section">
+          <h3>Følg Meg</h3>
+          <p>Instagram</p>
+          <p>YouTube</p>
+          <p>LinkedIn</p>
+        </div>
+        <div class="footer-section">
+          <h3>Tjenester</h3>
+          <p>Portrettfotografering</p>
+          <p>Eventfotografering</p>
+          <p>Videoproduksjon</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Oskar Havre. Alle rettigheter reservert.</p>
+      </div>
     </div>
-  </section>
+  </footer>
+
+  <script src="../js/script.js"></script>
 </body>
 </html>
